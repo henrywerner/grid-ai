@@ -10,29 +10,16 @@ public class handler {
     static ArrayList<Integer> endPointY;
 
     public static void main(String[] args) throws Exception {
-        /*
-        - Take in argument for file name of map
-        - convert map into matrix ??
-        - send matrix to navigation alg
-        - output???
-         */
         endPointY = new ArrayList<Integer>();
         endPointX = new ArrayList<Integer>();
 
         int[][] map = createMap(args[0]);
+        //int[][] map = createMap("Project1Map_6.txt");
+
         createVisualMap(map);
         System.out.println("Starting point: (" + startX + ", " + startY + ")");
 
         navigator nvg = new navigator(map,startX,startY,endPointX,endPointY);
-
-
-//        for(int y = 0; y < 10; y++){
-//            for(int x = 0; x < 10; x++) {
-//                System.out.print("[" + map[x][y] + "] ");
-//            }
-//            System.out.print("\n");
-//        }
-
     }
 
     /* Turns the input file's contents into a 2D array */
@@ -40,7 +27,7 @@ public class handler {
     {
         int[][] map = new int[10][10];
 
-        File mapFile = new File("./maps/" + input);
+        File mapFile = new File("./maps/" + input); //search for file name inside of maps folder
         Scanner scnr = new Scanner(mapFile);
         String contents = null;
         String[] cells = new String[100];
@@ -49,9 +36,11 @@ public class handler {
         if (scnr.hasNextLine())
             contents = scnr.nextLine();
 
+        //split string along spaces
         if (contents != null)
             cells = contents.split("\\s+");
 
+        //construct matrix
         for(int y = 0; y < 10; y++){
             for(int x = 0; x < 10; x++){
                 switch (cells[(y*10) + x]) {
@@ -105,8 +94,16 @@ public class handler {
                         //wall
                         System.out.print("██");
                         break;
+                    case 5:
+                        //ai path
+                        System.out.print("░░");
+                        break;
+                    case 6:
+                        //reached endpoint
+                        System.out.print("▒▒");
+                        break;
                     default:
-                        System.out.println("Uh oh.");
+                        System.out.println("??");
                 }
             }
             System.out.println("║");

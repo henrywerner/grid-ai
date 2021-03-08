@@ -1,10 +1,7 @@
-public class node implements Comparable<node>{
+public class node implements Comparable<node> {
 
     public int X, Y, f, g, h;
-
-    node() {
-
-    }
+    public node parent;
 
     node(int x, int y) {
         X = x;
@@ -19,6 +16,6 @@ public class node implements Comparable<node>{
     // I say "In theory" because I have absolutely no idea if this will work.
     @Override
     public int compareTo(node N) {
-        return N.f > this.f ? 1 : -1;   //TODO: figure out if I need to swap the >
+        return N.f < this.f ? 1 : -1;
     }
 }
