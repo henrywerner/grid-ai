@@ -17,7 +17,7 @@ public class handler {
         //int[][] map = createMap("Project1Map_6.txt");
 
         createVisualMap(map);
-        System.out.println("Starting point: (" + startX + ", " + startY + ")");
+        System.out.println("\nStarting point: (" + startX + ", " + startY + ")");
 
         navigator nvg = new navigator(map,startX,startY,endPointX,endPointY);
     }
@@ -27,7 +27,7 @@ public class handler {
     {
         int[][] map = new int[10][10];
 
-        File mapFile = new File("./maps/" + input); //search for file name inside of maps folder
+        File mapFile = new File(input); //search for file name inside of maps folder
         Scanner scnr = new Scanner(mapFile);
         String contents = null;
         String[] cells = new String[100];
@@ -73,9 +73,9 @@ public class handler {
 
     /* Creates a visual representation of the 2D map */
     public static void createVisualMap(int[][] map) {
-        System.out.println("╔════════════════════╗");
+        System.out.println("######################");
         for(int y = 0; y < 10; y++){
-            System.out.print("║");
+            System.out.print("#");
             for(int x = 0; x < 10; x++){
                 switch (map[x][y]) {
                     case 0:
@@ -92,24 +92,23 @@ public class handler {
                         break;
                     case 3:
                         //wall
-                        System.out.print("██");
+                        System.out.print("//");
                         break;
                     case 5:
                         //ai path
-                        System.out.print("░░");
+                        System.out.print("::");
                         break;
                     case 6:
                         //reached endpoint
-                        System.out.print("▒▒");
+                        System.out.print(";;");
                         break;
                     default:
                         System.out.println("??");
                 }
             }
-            System.out.println("║");
-            //System.out.println("");
+            System.out.println("#");
         }
-        System.out.println("╚════════════════════╝");
+        System.out.println("######################");
     }
 
 }

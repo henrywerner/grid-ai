@@ -80,7 +80,7 @@ public class navigator {
     /* Determine the distance from the given node to the closest endpoint */
     // As of right now, this just targets any goal but doesn't record which one. This will be a problem later.
     int manhattanDist(node N) {
-        ArrayList<Integer> paths = new ArrayList<Integer>();
+        ArrayList<Integer> paths = new ArrayList<>();
 
         //from node N to nearest endpoint
         for (int i = 0; i < endPointY.size(); i++) {
@@ -153,6 +153,7 @@ public class navigator {
             ep = ep.parent;
             map[ep.X][ep.Y] = 5;
         }
+        System.out.println("Solution:");
         System.out.println(steps);
     }
 
