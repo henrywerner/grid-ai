@@ -92,7 +92,7 @@ public class handler {
                         break;
                     case 3:
                         //wall
-                        System.out.print("//");
+                        System.out.print("[]");
                         break;
                     case 5:
                         //ai path

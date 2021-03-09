@@ -1,7 +1,7 @@
 # Grid Navigation A.I.
 
 ## Files Included
-`handler.java`
+`handler.java` 
 : Houses the main method; Converts the input file into an int matrix.
 
 `navigator.java`
@@ -22,16 +22,16 @@ C:\Users\htwer\Desktop\grid-ai\src>javac handler.java
 
 C:\Users\htwer\Desktop\grid-ai\src>java handler ../maps/Project1Map_0.txt
 ######################
-#              ST  //#
-#  //              //#
-#  //EN          ////#
-#  //              //#
-#  //////        ////#
-#  ////////    //////#
-#  ////////    //////#
-#  ////////EN  //////#
-#  //////////  //////#
-#////////////EN//////#
+#              ST  []#
+#  []              []#
+#  []EN          [][]#
+#  []              []#
+#  [][][]        [][]#
+#  [][][][]    [][][]#
+#  [][][][]    [][][]#
+#  [][][][]EN  [][][]#
+#  [][][][][]  [][][]#
+#[][][][][][]EN[][][]#
 ######################
 
 Starting point: (7, 0)
@@ -46,18 +46,32 @@ Down
 Down
 
 ######################
-#    ::::::::::::  //#
-#  //::            //#
-#  //;;          ////#
-#  //              //#
-#  //////        ////#
-#  ////////    //////#
-#  ////////    //////#
-#  ////////EN  //////#
-#  //////////  //////#
-#////////////EN//////#
+#    ::::::::::::  []#
+#  []::            []#
+#  [];;          [][]#
+#  []              []#
+#  [][][]        [][]#
+#  [][][][]    [][][]#
+#  [][][][]    [][][]#
+#  [][][][]EN  [][][]#
+#  [][][][][]  [][][]#
+#[][][][][][]EN[][][]#
 ######################
 ```
 
 NOTE: When running the program within an IDE, I had to use the arguement `./maps/MapFile` instead of `../maps/MapFile`. 
+
+
+## Map Depiction
+`ST` : Starting point
+
+`EN` : End point
+
+`[]` : Wall; The agent is unable to pass through.
+
+`##` : Map boundry
+
+`::` : AI path
+
+`;;` : AI path end point
 
