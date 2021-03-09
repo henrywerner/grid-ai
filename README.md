@@ -15,7 +15,7 @@
 I developed the program using JDK 1.8.0 and JDK 15.0.2 using the IntelliJ IDEA IDE. I also tested compiling and running using Windows command prompt.
 Input is handled by passing through the map file name as an argument.
 
-Here is an example compilation and execution of the program while reading a map file from the maps folder:
+Here is an example of compiling and executing in command prompt while using a map file from the maps folder:
 
 ```
 C:\Users\htwer\Desktop\grid-ai\src>javac handler.java
@@ -59,8 +59,7 @@ Down
 ######################
 ```
 
-NOTE: When running the program within an IDE, I had to use the arguement `./maps/MapFile` instead of `../maps/MapFile`. 
-
+NOTE: When running the program within an IDE, I had to use the argument `./maps/MapFile` instead of `../maps/MapFile`.
 
 ## Map Depiction
 `ST` : Starting point
@@ -69,7 +68,7 @@ NOTE: When running the program within an IDE, I had to use the arguement `./maps
 
 `[]` : Wall; The agent is unable to pass through.
 
-`##` : Map boundry
+`##` : Map boundary
 
 `::` : AI path
 
