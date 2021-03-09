@@ -10,6 +10,9 @@
 `node.java`
 : An object class that holds data for explored map nodes.
 
+`./maps/`
+: A folder of example maps used in testing. 
+
 
 ## Execution
 I developed the program using JDK 1.8.0 and JDK 15.0.2 using the IntelliJ IDEA IDE. I also tested compiling and running using Windows command prompt.
