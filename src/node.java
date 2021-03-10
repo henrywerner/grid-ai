@@ -8,14 +8,15 @@ public class node implements Comparable<node> {
         Y = y;
     }
 
+    //F equals the g (path length from start) plus h (heuristic value)
     void updateF() {
         f = g + h;
     }
 
-    // In theory, this should let me override how priority queue handles the comparison for this custom object.
-    // I say "In theory" because I have absolutely no idea if this will work.
+    // Override how the priority queue handles the comparison for nodes
     @Override
     public int compareTo(node N) {
+        // Set the priority queue to sort for the node with the smallest f value
         return N.f < this.f ? 1 : -1;
     }
 }

@@ -1,24 +1,13 @@
 import java.util.PriorityQueue;
 import java.util.ArrayList;
 
- /*
-    A*
-    -   Use the manhattan distance to find the value for H:  the sum of absolute values of differences in the goal’s x
-        and y coordinates and the current cell’s x and y coordinates respectively
-    -   Store the open list as an array of booleans? array length 100 with each value corresponding to a node?
-    -   A* is best when there is a singular destination, so maybe just calculate the best end point?
-    -   we can check if we've been to a node by checking if it's null or not
- */
-
 public class navigator {
 
-    private final int startX;
-    private final int startY;
     private final ArrayList<Integer> endPointX;
     private final ArrayList<Integer> endPointY;
     private int[][] map;
 
-    PriorityQueue<node> openSet = new PriorityQueue<node>(100);
+    PriorityQueue<node> openSet = new PriorityQueue<>(100);
     node[][] cell;
 
     /* Constructor */
@@ -26,8 +15,6 @@ public class navigator {
         map = m;
         cell = new node[10][10];
 
-        startX = x;
-        startY = y;
         endPointX = epX;
         endPointY = epY;
 
@@ -78,13 +65,12 @@ public class navigator {
     }
 
     /* Determine the distance from the given node to the closest endpoint */
-    // As of right now, this just targets any goal but doesn't record which one. This will be a problem later.
     int manhattanDist(node N) {
         ArrayList<Integer> paths = new ArrayList<>();
 
         //from node N to nearest endpoint
         for (int i = 0; i < endPointY.size(); i++) {
-            //endPointY and endPointX should always have the same number of elements, so I can get away with this.
+            //endPointY and endPointX always have the same size, so I can get away with this.
             int k = Math.abs(N.X - endPointX.get(i)) + Math.abs(N.Y - endPointY.get(i));
             paths.add(k);
         }
@@ -102,20 +88,10 @@ public class navigator {
         }
     }
 
+    /* Determine if given node matches any endpoint locations */
     boolean isEndpoint(node N) {
         for (int k = 0; k < endPointY.size(); k++) {
             if (N.X == endPointX.get(k) && N.Y == endPointY.get(k)) {
-                //we found an endpoint
-                System.out.println("Endpoint found.");
-                return true;
-            }
-        }
-        return false;
-    }
-
-    boolean isEndpoint(node N, int movementX, int movementY) {
-        for (int k = 0; k < endPointY.size(); k++) {
-            if (N.X + movementX == endPointX.get(k) && N.Y + movementY == endPointY.get(k)) {
                 //we found an endpoint
                 System.out.println("Endpoint found.");
                 return true;
@@ -164,7 +140,7 @@ public class navigator {
             node currentNode = openSet.poll();
             openSet.remove(currentNode);
 
-            //check all cardinal directions?
+            //check all possible directions, add new discoveries to openSet
             node downNode = move(currentNode, "down");
             if (downNode != currentNode) { //move stays in bounds
                 if (downNode == null) { //we haven't been to this node before

@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -10,11 +9,10 @@ public class handler {
     static ArrayList<Integer> endPointY;
 
     public static void main(String[] args) throws Exception {
-        endPointY = new ArrayList<Integer>();
-        endPointX = new ArrayList<Integer>();
+        endPointY = new ArrayList<>();
+        endPointX = new ArrayList<>();
 
         int[][] map = createMap(args[0]);
-        //int[][] map = createMap("Project1Map_6.txt");
 
         createVisualMap(map);
         System.out.println("\nStarting point: (" + startX + ", " + startY + ")");
@@ -27,7 +25,7 @@ public class handler {
     {
         int[][] map = new int[10][10];
 
-        File mapFile = new File(input); //search for file name inside of maps folder
+        File mapFile = new File(input); //search for file name
         Scanner scnr = new Scanner(mapFile);
         String contents = null;
         String[] cells = new String[100];
